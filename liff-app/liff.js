@@ -211,6 +211,7 @@ function liffConnectToDevice(device) {
 }
 
 function liffGetUserService(service) {
+    document.getElementById("device-name").innerText = 11;
     // Button pressed state
     //service.getCharacteristic(BTN_CHARACTERISTIC_UUID).then(characteristic => {
         //liffGetButtonStateCharacteristic(characteristic);
@@ -220,6 +221,7 @@ function liffGetUserService(service) {
 
     // Toggle LED
     service.getCharacteristic(LED_CHARACTERISTIC_UUID).then(characteristic => {
+        document.getElementById("device-name").innerText=22;
         window.ledCharacteristic = characteristic;
 
         // Switch off by default
@@ -266,6 +268,7 @@ function liffGetButtonStateCharacteristic(characteristic) {
 function liffToggleDeviceLedState(state) {
     // on: 0x01
     // off: 0x00
+    document.getElementById("device-name").innerText=33;
     window.ledCharacteristic.writeValue(
         state ? new Uint8Array([0xAA023009]) : new Uint8Array([0xAA,0x02,0x30,0x09])
     ).catch(error => {
