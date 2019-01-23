@@ -248,7 +248,7 @@ function liffGetButtonStateCharacteristic(characteristic) {
     // (Get notified when button state changes)
     characteristic.startNotifications().then(() => {
         characteristic.addEventListener('characteristicvaluechanged', e => {
-            const val = (new Uint8Array(e.target.value.buffer))[0xAA,0x01,0x1E];
+            const val = (new Uint8Array(e.target.value.buffer))[0xAA011E];
             if (val > 0) {
                 // press
                 uiToggleStateButton(true);
@@ -267,7 +267,7 @@ function liffToggleDeviceLedState(state) {
     // on: 0x01
     // off: 0x00
     window.ledCharacteristic.writeValue(
-        state ? new Uint8Array([0xAA,0x02,0x30,0x09]) : new Uint8Array([0xAA,0x02,0x30,0x09])
+        state ? new Uint8Array([0xAA023009]) : new Uint8Array([0xAA023009])
     ).catch(error => {
         uiStatusError(makeErrorMsg(error), false);
     });
