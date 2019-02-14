@@ -266,7 +266,7 @@ function liffGetButtonStateCharacteristic(characteristic) {
 
 function liffToggleDeviceLedState(state) {
     document.getElementById("device-id").innerText = "dd";
-    document.getElementById("device-name").innerText = "xx";
+    document.getElementById("device-name").innerText = state?"LED ON" : "LED OFF";
     // on: 0x01
     // off: 0x00
     window.ledCharacteristic.writeValue(
