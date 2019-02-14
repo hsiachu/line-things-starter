@@ -1,7 +1,7 @@
 // User service UUID: Change this to your generated service UUID
 const USER_SERVICE_UUID         = '9bf9581b-e646-44b2-9bf5-88e47282607b'; // LED, Button
 // User service characteristics
-const LED_CHARACTERISTIC_UUID   = '9BF90003-E646-44B2-9BF5-88E47282607B';
+const LED_CHARACTERISTIC_UUID   = '9bf9581b-e646-44b2-9bf5-88e47282607b';
 const BTN_CHARACTERISTIC_UUID   = '9BF90002-E646-44B2-9BF5-88E47282607B';
 
 //const LED_CHARACTERISTIC_UUID   = 'E9062E71-9E62-4BC6-B0D3-35CDCD9B027B';
@@ -265,7 +265,7 @@ function liffGetButtonStateCharacteristic(characteristic) {
 }
 
 function liffToggleDeviceLedState(state) {
-    document.getElementById("device-id").innerText = "jj";
+    document.getElementById("device-id").innerText = "jjbb";
     document.getElementById("device-name").innerText = state ? "LED ON" : "LED OFF";
     // on: 0x01
     // off: 0x00
