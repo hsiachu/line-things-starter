@@ -170,7 +170,7 @@ function liffConnectToDevice(device) {
     device.gatt.connect().then(() => {
         document.getElementById("device-name").innerText = device.name;
         document.getElementById("device-id").innerText = device.id;
-        document.getElementById("device-name").innerText = "0088";
+        document.getElementById("device-name").innerText = "88";
         // Show status connected
         uiToggleDeviceConnected(true);
 
