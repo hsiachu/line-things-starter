@@ -12,7 +12,7 @@ const PSDI_SERVICE_UUID         = 'E625601E-9E55-4597-A598-76018A0D293D'; // Dev
 const PSDI_CHARACTERISTIC_UUID  = '26E2B12B-85F0-4F3F-9FDD-91D114270E6E';
 
 // UI settings
-let ledState = true; // true: LED on, false: LED off
+let ledState = false; // true: LED on, false: LED off
 let clickCount = 0;
 
 // -------------- //
@@ -211,7 +211,6 @@ document.getElementById("device-name").innerText = "00";
 }
 
 function liffGetUserService(service) {
-    document.getElementById("device-name").innerText = "11";
     // Button pressed state
     //service.getCharacteristic(BTN_CHARACTERISTIC_UUID).then(characteristic => {
         //liffGetButtonStateCharacteristic(characteristic);
@@ -221,7 +220,6 @@ function liffGetUserService(service) {
 
     // Toggle LED
     service.getCharacteristic(LED_CHARACTERISTIC_UUID).then(characteristic => {
-        document.getElementById("device-name").innerText="22";
         window.ledCharacteristic = characteristic;
 
         // Switch off by default
@@ -268,7 +266,6 @@ function liffGetButtonStateCharacteristic(characteristic) {
 function liffToggleDeviceLedState(state) {
     // on: 0x01
     // off: 0x00
-    document.getElementById("device-name").innerText="33";
     window.ledCharacteristic.writeValue(
         state ? new Uint8Array([0x52,0x8E,0x1A,0x7D) : new Uint8Array([0x52,0x8E,0x1A,0x7E])
     ).catch(error => {
